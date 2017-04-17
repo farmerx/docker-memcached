@@ -16,8 +16,10 @@ RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN echo "root:123456" | chpasswd
 
 RUN apt-get install -y supervisor
+RUN apt-get install -y memcached
 RUN mkdir -p /var/log/supervisor
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 22
+EXPOSE 11211
