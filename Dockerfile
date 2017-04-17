@@ -20,6 +20,6 @@ RUN apt-get install -y memcached
 RUN mkdir -p /var/log/supervisor
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
+CMD ["/usr/bin/supervisord"]
 EXPOSE 22
 EXPOSE 11211
